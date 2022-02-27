@@ -23,7 +23,7 @@ Don't install [bar_chart_race](https://github.com/dexplo/bar_chart_race) using p
 
 ### [ffmpeg](https://www.ffmpeg.org/download.html) installation:
 To install ffmpeg, you can go to [this site](https://ffmpeg.org/download.html).
-For Windows, you can download zip from [here](https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-essentials.zip), extract it and add it to path or paste it in your System32 folder.
+For Windows, you can directly download zip from [here](https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-essentials.zip), extract it and add it to path or paste it in your System32 folder.
 To understand more about the step-by-step guide on how to do this, check [this site](https://www.wikihow.com/Install-FFmpeg-on-Windows).
 
 ## Usage
