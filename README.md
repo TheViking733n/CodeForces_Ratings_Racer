@@ -27,6 +27,7 @@ For Windows, you can download zip from [here](https://www.gyan.dev/ffmpeg/builds
 To understand more about the step-by-step guide on how to do this, check [this site](https://www.wikihow.com/Install-FFmpeg-on-Windows).
 
 ## Usage
+Write all the CodeForces user handles in input.txt file and then run the below command:
 ```sh
 python cf_racer.py
 ```
