@@ -16,7 +16,8 @@ PAUSE_IN_END = 3                  # In seconds
 OUTPUT_FILE_NAME = "output.mp4"   # use .gif extension to make gif
 READ_INPUT_FROM_FILE = True       # If False or file doesn't exists, then takes input from user
 INPUT_FILE_NAME = "input.txt"     # To store CodeForces user handles in separate lines
-VIDEO_TITLE = "Codeforces Ratings Racer"
+VIDEO_TITLE = "Codeforces Ratings Racer"     # Default title of video
+USE_HANDLE_INSTEAD_OF_NAME = False           # If True, then it will show actual name of user in video
 
 
 # Gobal Variables
@@ -143,6 +144,7 @@ def main():
     global INPUT_FILE_NAME
     global OUTPUT_FILE_NAME
     global VIDEO_TITLE
+    global USE_HANDLE_INSTEAD_OF_NAME
 
     user_handles = take_handle_input()
     # Removing duplicates
@@ -175,12 +177,15 @@ def main():
     DATES.sort()
     DATES += [DATES[-1]]*PAUSE_IN_END*2    # To pause the video in the end; Because one period is 500ms
 
-    # Making a name list to for bar title
-    name_list = []
-    for handle in user_handles:
-        real_name = REAL_NAME[handle]
-        first_two = real_name.split()[:2]
-        name_list.append(" ".join(first_two))
+    # Making a name list to for each bar title
+    if USE_HANDLE_INSTEAD_OF_NAME:
+        name_list = user_handles
+    else:
+        name_list = []
+        for handle in user_handles:
+            real_name = REAL_NAME[handle]
+            first_two = real_name.split()[:2]
+            name_list.append(" ".join(first_two))
 
 
     # Making pandas dataframe and merging all user data of contests
@@ -208,18 +213,17 @@ def main():
 
 
     # Output file name
-    print("\nEnter output filename with extension (default: output.mp4)")
+    print(f"\nEnter output filename with extension (default: {OUTPUT_FILE_NAME})")
     print("Supported formats are: .mp4, .gif, .html, .mpeg, .mov")
     temp = input("Enter filename (or press Enter to use default): ")
     if temp != "":
         if not (temp.endswith(".mp4") or temp.endswith(".gif") or temp.endswith(".html") or temp.endswith(".mpeg") or temp.endswith(".mov")):
             print("Invalid file extension. Using default")
-            temp = "output.mp4"    
         OUTPUT_FILE_NAME = temp
 
 
     # Video title
-    print("\nEnter video title (default: Codeforces Ratings Racer)")
+    print(f"\nEnter video title (default: {VIDEO_TITLE})")
     temp = input("Enter title (or press Enter to use default): ")
     if temp!="":
         VIDEO_TITLE = temp
