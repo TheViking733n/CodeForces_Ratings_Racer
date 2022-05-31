@@ -17,7 +17,7 @@ OUTPUT_FILE_NAME = "output.mp4"   # use .gif extension to make gif
 READ_INPUT_FROM_FILE = True       # If False or file doesn't exists, then takes input from user
 INPUT_FILE_NAME = "input.txt"     # To store CodeForces user handles in separate lines
 VIDEO_TITLE = "Codeforces Ratings Racer"     # Default title of video
-USE_HANDLE_INSTEAD_OF_NAME = False           # If True, then it will show actual name of user in video
+USE_HANDLE_INSTEAD_OF_NAME = True            # If False, then it will show actual name of user in video
 
 
 # Gobal Variables
