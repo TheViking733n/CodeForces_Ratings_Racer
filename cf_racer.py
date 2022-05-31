@@ -75,8 +75,13 @@ def ratings_scraper(handle):
         soup = BeautifulSoup(resp.content, "html.parser")
         
         try:
-            script_tag = soup.findAll('script')[51]
-
+            script_tag_lst = soup.findAll('script')
+            script_tag = None
+            for s in script_tag_lst:
+                if "Codeforces Round" in str(s):
+                    script_tag = s
+                    break
+            
             script_str = str(script_tag).replace("\r", " ").replace("\n", " ").replace("Rated for ", "")
             while "  " in script_str:
                 script_str = script_str.replace("  ", " ")
@@ -84,7 +89,7 @@ def ratings_scraper(handle):
             
             data_list_str = script_str.split("; data.push")[1][1:-1]
             data_list = ast.literal_eval(data_list_str)
-            
+        
         except IndexError:
             return None           # User doesn't exists
         
